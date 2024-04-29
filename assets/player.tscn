@@ -8,6 +8,7 @@
 size = Vector2(19.9844, 19.9844)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 position = Vector2(43, 476)
 platform_wall_layers = 1
 script = ExtResource("1_yunak")

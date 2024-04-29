@@ -5,19 +5,35 @@ extends CharacterBody2D
 const SPEED = 100
 const SPEED_DAMPENING = 0.08
 var motion = Vector2(0, 0)
+var setup = true
+var start_countdown = 30
 		
 # ----------------------------- Built-In Methods ---------------------------
 
+# Sets the mouse parameters to correctly work.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
+# Handles the association of the cursor collider with the mouse movement.
 func _input(event):
-	if event is InputEventMouseMotion:
-		var mouse_motion = event.get_relative()
-		motion = mouse_motion * SPEED
+	if start_countdown == 0:
+		if event is InputEventMouseMotion:
+			var mouse_motion = event.get_relative()
+			motion = mouse_motion * SPEED
+	else:
+		start_countdown -= 1
+		
+# Sets up the position to start close to the player character.
+func _process(delta: float):
+	if setup:
+		var player = get_parent().get_node("Player")
+		global_position = player.global_position
+		global_position.y -= 50
+		global_position.x += 30
+		setup = false
 
-# Handles the movement of the cursor collider and checks if it collides with
+# Handles the velocity of the cursor collider and checks if it collides with
 # any TileMaps.
 func _physics_process(delta: float):
 	velocity = motion

@@ -3,7 +3,7 @@ extends CharacterBody2D
 # ----------------------------- Variables ---------------------------
 
 const SPEED = 400.0
-const RUN_FACTOR = 1.3
+const RUN_FACTOR = 1.5
 const JUMP_VELOCITY = -1300.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.

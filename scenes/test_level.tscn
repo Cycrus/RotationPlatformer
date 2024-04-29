@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmui2prunuot7"]
+[gd_scene load_steps=12 format=3 uid="uid://bfacld7nggr1x"]
 
-[ext_resource type="Script" path="res://scripts/puzzle_element.gd" id="1_bqq20"]
-[ext_resource type="Texture2D" uid="uid://cp3hiak70j3m4" path="res://res/tileset.png" id="1_wu5fe"]
-[ext_resource type="PackedScene" uid="uid://8aepvvcu53rj" path="res://assets/player.tscn" id="2_1ammf"]
-[ext_resource type="PackedScene" uid="uid://cynykbf5m7bht" path="res://assets/cursor_collider.tscn" id="4_7uajd"]
+[ext_resource type="PackedScene" uid="uid://c1kdql23jokgm" path="res://assets/ui_controller.tscn" id="1_ckmv6"]
+[ext_resource type="PackedScene" uid="uid://cynykbf5m7bht" path="res://assets/cursor_collider.tscn" id="2_4wdkg"]
+[ext_resource type="PackedScene" uid="uid://8aepvvcu53rj" path="res://assets/player.tscn" id="3_mlw7o"]
+[ext_resource type="Script" path="res://scripts/puzzle_element.gd" id="4_vr4jj"]
+[ext_resource type="Texture2D" uid="uid://cp3hiak70j3m4" path="res://res/tileset.png" id="5_n2wh4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_voihl"]
-texture = ExtResource("1_wu5fe")
+texture = ExtResource("5_n2wh4")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -1001,7 +1002,7 @@ physics_layer_0/collision_mask = 3
 sources/2 = SubResource("TileSetAtlasSource_voihl")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t3e84"]
-texture = ExtResource("1_wu5fe")
+texture = ExtResource("5_n2wh4")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -1996,7 +1997,7 @@ physics_layer_0/collision_mask = 3
 sources/2 = SubResource("TileSetAtlasSource_t3e84")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s1iue"]
-texture = ExtResource("1_wu5fe")
+texture = ExtResource("5_n2wh4")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -2992,18 +2993,21 @@ sources/2 = SubResource("TileSetAtlasSource_s1iue")
 
 [node name="World" type="Node2D"]
 
-[node name="CursorCollider" parent="." instance=ExtResource("4_7uajd")]
+[node name="UiController" parent="." instance=ExtResource("1_ckmv6")]
+visible = false
+
+[node name="CursorCollider" parent="." instance=ExtResource("2_4wdkg")]
 position = Vector2(592, 280)
 
-[node name="Player" parent="." instance=ExtResource("2_1ammf")]
+[node name="Player" parent="." instance=ExtResource("3_mlw7o")]
 position = Vector2(544, 344)
 
-[node name="Stage" type="Node2D" parent="."]
+[node name="Stage" type="Node2D" parent="." groups=["PuzzleElement"]]
 position = Vector2(264, 312)
-script = ExtResource("1_bqq20")
+script = ExtResource("4_vr4jj")
 metadata/can_rotate = false
-metadata/rotation_speed = 0.0
-metadata/rotation_step = 0
+metadata/rotation_speed = 41.88
+metadata/rotation_step = 90
 
 [node name="Tiles" type="TileMap" parent="Stage"]
 tile_set = SubResource("TileSet_7qbjv")
@@ -3014,7 +3018,7 @@ layer_0/tile_data = PackedInt32Array(262141, 196610, 0, 262142, 196610, 0, 26214
 
 [node name="PuzzleElement1" type="Node2D" parent="." groups=["PuzzleElement"]]
 position = Vector2(1409, 448)
-script = ExtResource("1_bqq20")
+script = ExtResource("4_vr4jj")
 metadata/can_rotate = true
 metadata/rotation_speed = 360.0
 metadata/rotation_step = -90
@@ -3029,7 +3033,7 @@ position = Vector2(63.0001, 6.10352e-05)
 
 [node name="PuzzleElement" type="Node2D" parent="." groups=["PuzzleElement"]]
 position = Vector2(1024, 192)
-script = ExtResource("1_bqq20")
+script = ExtResource("4_vr4jj")
 metadata/can_rotate = true
 metadata/rotation_speed = 20.0
 metadata/rotation_step = 360
