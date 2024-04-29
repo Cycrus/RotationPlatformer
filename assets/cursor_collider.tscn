@@ -9,7 +9,7 @@ height = 26.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8a5f7"]
 
-[node name="Node2D" type="CharacterBody2D"]
+[node name="CursorCollider" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 2
 collision_mask = 2
@@ -26,3 +26,6 @@ shape = SubResource("CapsuleShape2D_8a5f7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_y7ltv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-3, -196)

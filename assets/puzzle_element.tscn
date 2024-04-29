@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/puzzle_element.gd" id="1_3wvxd"]
 [ext_resource type="Texture2D" uid="uid://cp3hiak70j3m4" path="res://res/tileset.png" id="2_dneni"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s1iue"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_thmhw"]
 texture = ExtResource("2_dneni")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -992,11 +992,11 @@ texture_region_size = Vector2i(64, 64)
 17:17/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:17/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="TileSet" id="TileSet_2i6r0"]
+[sub_resource type="TileSet" id="TileSet_q2tvr"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
-sources/2 = SubResource("TileSetAtlasSource_s1iue")
+sources/2 = SubResource("TileSetAtlasSource_thmhw")
 
 [node name="PuzzleElement" type="Node2D" groups=["PuzzleElement"]]
 script = ExtResource("1_3wvxd")
@@ -1005,7 +1005,7 @@ metadata/rotation_speed = 360.0
 metadata/rotation_step = 90
 
 [node name="Tiles" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_2i6r0")
+tile_set = SubResource("TileSet_q2tvr")
 format = 2
 
 [node name="RotationPoint" type="Node2D" parent="."]

@@ -19,7 +19,7 @@ scale = Vector2(3.205, 3.205)
 shape = SubResource("RectangleShape2D_5x2pp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.75, 0.75)
+position = Vector2(-3, -196)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_g4n5d")
