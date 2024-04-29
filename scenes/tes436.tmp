@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmui2prunuot7"]
+
+[ext_resource type="PackedScene" uid="uid://d08wk6vif6xe0" path="res://assets/puzzle_element.tscn" id="1_5yxhk"]
+
+[node name="World" type="Node2D"]
+
+[node name="PlayerNode" type="Node2D" parent="."]
+position = Vector2(-8, 16)
+
+[node name="PuzzleElement" parent="." instance=ExtResource("1_5yxhk")]
+position = Vector2(264, 312)
+metadata/can_rotate = true
