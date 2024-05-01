@@ -14,7 +14,6 @@ var puzzle_element_controller = null
 # ----------------------------- Built-In Methods ---------------------------
 
 func _ready():
-	get_node("Camera2D").make_current()
 	puzzle_element_controller = get_child(3)
 
 # Handles all the Movement and user input.

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/puzzle_element_controller.gd" id="3_0db1o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x2pp"]
-size = Vector2(19.9844, 19.9844)
+size = Vector2(19.9688, 19.9688)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
@@ -14,7 +14,7 @@ platform_wall_layers = 1
 script = ExtResource("1_yunak")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.0249993, 0.0249993)
+position = Vector2(0, 3.05176e-05)
 scale = Vector2(3.205, 3.205)
 shape = SubResource("RectangleShape2D_5x2pp")
 

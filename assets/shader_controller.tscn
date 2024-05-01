@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs6fbdmuovso6"]
+
+[ext_resource type="Script" path="res://scripts/ShaderController.gd" id="1_3tv0h"]
+
+[node name="ShaderController" type="Node2D"]
+script = ExtResource("1_3tv0h")
+metadata/shader_file_1 = "platform_shader_basic"
+metadata/shader_file_2 = ""
+metadata/shader_file_3 = ""

@@ -6,7 +6,7 @@ const SPEED = 100
 const SPEED_DAMPENING = 0.08
 var motion = Vector2(0, 0)
 var setup = true
-var start_countdown = 30
+var start_countdown = 10
 		
 # ----------------------------- Built-In Methods ---------------------------
 

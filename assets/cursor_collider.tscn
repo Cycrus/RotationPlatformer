@@ -28,4 +28,3 @@ shape = SubResource("CapsuleShape2D_8a5f7")
 texture = ExtResource("2_y7ltv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-3, -196)
