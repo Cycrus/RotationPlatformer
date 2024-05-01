@@ -36,17 +36,17 @@ func _setMainCameraOrientation():
 		main_camera.global_position = camera_pos
 		
 		var zoom = main_camera.zoom
-		zoom = distance / 3000
+		zoom = distance / Vector2(get_viewport().size)
 		zoom = abs(zoom)
 		zoom.x = max(zoom.y, zoom.x)
 		zoom.y = zoom.x
-		zoom = Vector2(1, 1) - zoom
+		zoom = Vector2(1.3, 1.3) - zoom
 		if zoom.x > 1:
 			zoom.x = 1
 			zoom.y = 1
-		elif zoom.x < 0.5:
-			zoom.x = 0.5
-			zoom.y = 0.5
+		elif zoom.x < 0.6:
+			zoom.x = 0.6
+			zoom.y = 0.6
 		main_camera.zoom = zoom
 	
 func toggleMainMenu():

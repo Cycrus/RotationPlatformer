@@ -3,7 +3,7 @@ extends CharacterBody2D
 # ----------------------------- Variables ---------------------------
 
 const SPEED = 100
-const SPEED_DAMPENING = 0.08
+const SPEED_DAMPENING = 0.05
 var motion = Vector2(0, 0)
 var setup = true
 var start_countdown = 10
