@@ -43,11 +43,11 @@ func _physics_process(delta: float):
 
 # ----------------------------- Private Methods ---------------------------
 
-# Checks if the cursor collider still collides with a puzzle element after
-# rotating it 10 degree negatively from the puzzle element direction.
-# Used to check if the cursor collider blocks a puzzle elements rotation or not.
+# Checks if the cursor collider still collides with a world element after
+# rotating it 10 degree negatively from the world element direction.
+# Used to check if the cursor collider blocks a world elements rotation or not.
 #
-# param element: The puzzle element to check the cursor collider with
+# param element: The world element to check the cursor collider with
 func _checkRotatedOverlap(element: Node2D):
 	var tile_map = element.getTileMap()
 	var position = global_position
@@ -57,7 +57,7 @@ func _checkRotatedOverlap(element: Node2D):
 	return hits_tile
 		
 # Checks if the cursor collides with any tile maps in the current frame.
-# Stops a puzzle element which rotates towards the cursor collider.
+# Stops a world element which rotates towards the cursor collider.
 func _checkCollidingObject():
 	var area = get_child(1)
 	for body in area.get_overlapping_bodies():

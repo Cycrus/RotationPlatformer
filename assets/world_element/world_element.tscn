@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnscdcxv38rl1"]
+
+[ext_resource type="Script" path="res://scripts/world_element.gd" id="1_xvjsr"]
+
+[node name="WorldElement" type="Node2D" groups=["WorldElement"]]
+script = ExtResource("1_xvjsr")
+metadata/can_rotate = true
+metadata/rotation_speed = 360.0
+metadata/rotation_step = 90

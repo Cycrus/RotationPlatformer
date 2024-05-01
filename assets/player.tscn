@@ -1,28 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://8aepvvcu53rj"]
+[gd_scene load_steps=5 format=3 uid="uid://clqdr78or3c7r"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_yunak"]
+[ext_resource type="Script" path="res://scripts/world_element_controller.gd" id="2_dypct"]
 [ext_resource type="Texture2D" uid="uid://c7i753v4j288t" path="res://res/player.png" id="2_g4n5d"]
-[ext_resource type="Script" path="res://scripts/puzzle_element_controller.gd" id="3_0db1o"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x2pp"]
-size = Vector2(19.9688, 19.9688)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqq57"]
+size = Vector2(64, 64)
 
 [node name="Player" type="CharacterBody2D"]
-z_index = 1
-position = Vector2(43, 476)
-platform_wall_layers = 1
 script = ExtResource("1_yunak")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3.05176e-05)
-scale = Vector2(3.205, 3.205)
-shape = SubResource("RectangleShape2D_5x2pp")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-3, -196)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_g4n5d")
 
-[node name="PuzzleElementController" type="Node2D" parent="."]
-script = ExtResource("3_0db1o")
+[node name="WorldElementController" type="Node2D" parent="."]
+script = ExtResource("2_dypct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gqq57")
+
+[node name="Camera2D" type="Camera2D" parent="."]

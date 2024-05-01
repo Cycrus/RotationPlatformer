@@ -34,13 +34,13 @@ func initRotation(angle_degrees: float):
 func stopRotation():
 	stop_rotation_counter = 5
 	
-# Returns the rotation direction of the puzzle element.
+# Returns the rotation direction of the world element.
 #
 # return: The rotation direction. 1: clockwise, -1: counter-clockwise
 func getRotationDirection():
 	return sign(rotation_step)
 	
-# Rotates any point around the rotation point of the puzzle element for a certain
+# Rotates any point around the rotation point of the world element for a certain
 # degree in a single motion. Useful for relative distance checks with hypothetical
 # rotations.
 #
@@ -99,11 +99,11 @@ func _rotate_point(point: Vector2, angle_degrees: float) -> Vector2:
 func _getRotationComponents():
 	for child_id in range(get_child_count()):
 		var child = get_child(child_id)
-		if child is TileMap and child.name == "Tiles":
+		if child is TileMap and child.name.contains("Tiles"):
 			tile_map = child
-		elif child is Node2D and child.name == "RotationPoint":
+		elif child is Node2D and child.name.contains("RotationPoint"):
 			rotation_point = child
-		if child != null and rotation_point != null:
+		if tile_map != null and rotation_point != null:
 			break
 		
 # Checks if a rotation is finished by checking it it is close enough to

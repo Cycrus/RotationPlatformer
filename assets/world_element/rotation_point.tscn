@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://woh8v7ty2pc6"]
+
+[node name="RotationPoint" type="Node2D"]

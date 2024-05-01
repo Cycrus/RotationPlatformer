@@ -9,12 +9,12 @@ const JUMP_VELOCITY = -1300.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var curr_speed = 0.0
-var puzzle_element_controller = null
+var world_element_controller = null
 
 # ----------------------------- Built-In Methods ---------------------------
 
 func _ready():
-	puzzle_element_controller = get_child(3)
+	world_element_controller = get_node("WorldElementController")
 
 # Handles all the Movement and user input.
 func _physics_process(delta: float):
@@ -43,4 +43,4 @@ func _physics_process(delta: float):
 # Simply instructs the player object to jump up.
 func _jump():
 	velocity.y = JUMP_VELOCITY
-	puzzle_element_controller.rotateAllElements()
+	world_element_controller.rotateAllElements()

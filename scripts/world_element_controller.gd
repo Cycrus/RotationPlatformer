@@ -1,7 +1,7 @@
 extends Node2D
 
 var setup = true
-var puzzle_element_list = []
+var world_element_list = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,8 +15,8 @@ func _process(delta):
 		
 func setupController():
 	var scene = get_parent().get_parent()
-	puzzle_element_list = get_tree().get_nodes_in_group("PuzzleElement")
+	world_element_list = get_tree().get_nodes_in_group("WorldElement")
 		
 func rotateAllElements():
-	for element in puzzle_element_list:
+	for element in world_element_list:
 		element.requestRotation()

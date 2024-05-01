@@ -7,3 +7,7 @@ script = ExtResource("1_3tv0h")
 metadata/shader_file_1 = "platform_shader_basic"
 metadata/shader_file_2 = ""
 metadata/shader_file_3 = ""
+metadata/player_shader = "entity_shader/player_shader"
+metadata/cursor_shader = "entity_shader/cursor_shader"
+metadata/goal_shader = "entity_shader/goal_shader"
+metadata/danger_shader = "entity_shader/danger_shader"
