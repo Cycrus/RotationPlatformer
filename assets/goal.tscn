@@ -6,9 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pifjq"]
 size = Vector2(32, 32)
 
-[node name="Goal" type="Node2D"]
+[node name="Goal" type="Node2D" groups=["ShadeGroup2"]]
 script = ExtResource("1_3xamt")
-metadata/next_scene = ""
 
 [node name="Area" type="Area2D" parent="."]
 collision_layer = 3

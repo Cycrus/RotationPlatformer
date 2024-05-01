@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cipbqme1hbdc6"]
+
+[sub_resource type="GDScript" id="GDScript_8u8hr"]
+script/source = "extends Node2D
+
+var cursor = null
+var player = null
+var line = null
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	cursor = get_parent().get_node(\"CursorCollider\")
+	player = get_parent().get_node(\"Player\")
+	line = get_node(\"Line2D\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if player != null and cursor != null:
+		_setLinePosition()
+		_setLineWidth()
+
+func _setLinePosition():
+	line.points[0] = player.global_position
+	line.points[1] = cursor.global_position
+	
+func _setLineWidth():
+	var distance_vector = player.global_position - cursor.global_position
+	var distance = distance_vector.length()
+	var max_distance = cursor.kill_distance - (cursor.kill_distance / 20)
+	var width = max_distance - distance
+	width = width / max_distance * 6
+	line.width = width
+"
+
+[node name="CharacterBond" type="Node2D"]
+script = SubResource("GDScript_8u8hr")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)

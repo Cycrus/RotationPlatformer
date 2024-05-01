@@ -10,11 +10,13 @@ const JUMP_VELOCITY = -1300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var curr_speed = 0.0
 var world_element_controller = null
+var game_controller = null
 
 # ----------------------------- Built-In Methods ---------------------------
 
 func _ready():
 	world_element_controller = get_node("WorldElementController")
+	game_controller = get_parent().get_node("GameController")
 
 # Handles all the Movement and user input.
 func _physics_process(delta: float):
@@ -35,8 +37,12 @@ func _physics_process(delta: float):
 		velocity.x = direction * curr_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, curr_speed)
+		
+	if global_position.y >= 1000:
+		_kill()
 
 	move_and_slide()
+	_checkCollidingObject()
 	
 # ----------------------------- Private Methods ---------------------------
 
@@ -44,3 +50,17 @@ func _physics_process(delta: float):
 func _jump():
 	velocity.y = JUMP_VELOCITY
 	world_element_controller.rotateAllElements()
+	
+func _kill():
+	queue_free()
+	game_controller.looseGame()
+	
+func _checkCollidingObject():
+	var area = get_node("Area2D")
+	for body in area.get_overlapping_bodies():
+		if body is TileMap and body.name == "Tiles":
+			if _isDangerous(body.get_parent()):
+				_kill()
+
+func _isDangerous(element):
+	return element.is_in_group("Danger")

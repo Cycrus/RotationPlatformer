@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmfq3sl7f50q"]
+
+[ext_resource type="PackedScene" uid="uid://cynykbf5m7bht" path="res://assets/cursor_collider.tscn" id="1_usqf0"]
+[ext_resource type="PackedScene" uid="uid://clqdr78or3c7r" path="res://assets/player.tscn" id="2_p4dc4"]
+[ext_resource type="PackedScene" uid="uid://bs6fbdmuovso6" path="res://assets/shader_controller.tscn" id="3_5jcsy"]
+[ext_resource type="PackedScene" uid="uid://c1kdql23jokgm" path="res://assets/ui_controller.tscn" id="4_oea20"]
+[ext_resource type="PackedScene" uid="uid://cnscdcxv38rl1" path="res://assets/world_element/world_element.tscn" id="5_rn6d5"]
+[ext_resource type="PackedScene" uid="uid://woh8v7ty2pc6" path="res://assets/world_element/rotation_point.tscn" id="6_vm800"]
+[ext_resource type="PackedScene" uid="uid://dc6vvk68r3roh" path="res://assets/world_element/world_element_tiles.tscn" id="7_2wks1"]
+[ext_resource type="PackedScene" uid="uid://b4028eds0kncl" path="res://assets/goal.tscn" id="8_8no3h"]
+[ext_resource type="PackedScene" uid="uid://qeypu458ivyw" path="res://assets/game_controller.tscn" id="10_ooegm"]
+
+[node name="test_scene" type="Node2D"]
+
+[node name="CursorCollider" parent="." instance=ExtResource("1_usqf0")]
+position = Vector2(0, 32)
+
+[node name="Player" parent="." instance=ExtResource("2_p4dc4")]
+position = Vector2(0, 32)
+
+[node name="UiController" parent="." instance=ExtResource("4_oea20")]
+
+[node name="GameController" parent="." instance=ExtResource("10_ooegm")]
+metadata/win_scene = "main_menu"
+
+[node name="WorldElement" parent="." groups=["ShadeGroup5"] instance=ExtResource("5_rn6d5")]
+metadata/can_rotate = false
+
+[node name="Tiles" parent="WorldElement" instance=ExtResource("7_2wks1")]
+layer_0/tile_data = PackedInt32Array(131071, 65536, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0, 65541, 65536, 0, 65542, 65536, 0, 65543, 65536, 0, 65544, 65536, 0, 65545, 65536, 0, 65546, 65536, 0, 65547, 65536, 0, 65548, 131072, 0, 131084, 131072, 2, 131083, 65536, 2, 131082, 65536, 2, 131081, 65536, 2, 131080, 65536, 2, 131079, 65536, 2, 131078, 65536, 2, 131077, 65536, 2, 131076, 65536, 2, 131075, 65536, 2, 131074, 65536, 2, 131073, 65536, 2, 131072, 65536, 2, 196607, 65536, 2, 196606, 65536, 2, 196605, 65536, 2, 196604, 65536, 2, 196603, 65536, 2, 196602, 65536, 2, 196601, 65536, 2, 196600, 65536, 2, 196599, 65536, 2, 196598, 65536, 2, 196597, 65536, 2, 196596, 65536, 2, 196595, 65536, 2, 196594, 65536, 2, 196593, 0, 2, 131057, 0, 0, 131058, 65536, 0, 131059, 65536, 0, 131060, 65536, 0, 131061, 65536, 0, 131062, 65536, 0, 131063, 65536, 0, 131064, 65536, 0, 131065, 65536, 0, 131066, 65536, 0, 131067, 65536, 0, 131068, 65536, 0, 131069, 65536, 0, 131070, 65536, 0)
+
+[node name="RotationPoint" parent="WorldElement" instance=ExtResource("6_vm800")]
+
+[node name="Goal" parent="." instance=ExtResource("8_8no3h")]
+position = Vector2(672, -32)
+
+[node name="ShaderController" parent="." instance=ExtResource("3_5jcsy")]
+metadata/shader_files = PackedStringArray("platform_shader/danger_shader", "platform_shader/platform_shader_basic", "entity_shader/goal_shader", "platform_shader/danger_shader", "platform_shader/platform_shader_basic", "platform_shader/platform_shader_alternative")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://qeypu458ivyw"]
+
+[ext_resource type="Script" path="res://scripts/game_controller.gd" id="1_qr2so"]
+
+[node name="GameController" type="Node2D"]
+script = ExtResource("1_qr2so")
+metadata/win_scene = ""
+metadata/loose_scene = "current"

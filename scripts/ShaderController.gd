@@ -1,6 +1,6 @@
 extends Node2D
 
-var shader_nr = 3
+var shader_nr = 0
 var shade_element_lists = []
 var shader = []
 
@@ -16,6 +16,7 @@ func reassignShader(shader_file, id):
 	assignShaders()
 	
 func initLists():
+	shader_nr = get_meta("shader_files").size()
 	for shader_id in range(shader_nr):
 		shader.push_back(null)
 		shade_element_lists.push_back([])
@@ -26,16 +27,25 @@ func loadShader(shader_file, id):
 
 func loadInitShader():
 	for shader_id in range(shader_nr):
-		loadShader(get_meta("shader_file_" + str(shader_id + 1)), shader_id)
+		loadShader(get_meta("shader_files")[shader_id], shader_id)
 	
 func fetchShadeElements():
 	var scene = get_parent().get_parent()
 	for shader_id in range(shader_nr):
-		shade_element_lists[shader_id] = get_tree().get_nodes_in_group("ShadeGroup" + str(shader_id + 1))
+		shade_element_lists[shader_id] = get_tree().get_nodes_in_group("ShadeGroup" + str(shader_id))
 	
 func assignShaders():
 	for shader_id in range(shader_nr):
 		var new_material = ShaderMaterial.new()
 		new_material.shader = shader[shader_id]
 		for element in shade_element_lists[shader_id]:
-			element.get_node("Tiles").material = new_material
+			var tiles_exist = element.get_node("Tiles") != null
+			var sprite_exists = element.get_node("Sprite2D") != null
+			var line_exists = element.get_node("Line2D") != null
+			if tiles_exist:
+				element.get_node("Tiles").material = new_material
+			if sprite_exists:
+				element.get_node("Sprite2D").material = new_material
+			if line_exists:
+				element.get_node("Line2D").material = new_material
+				

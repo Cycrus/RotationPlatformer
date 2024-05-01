@@ -1,12 +1,11 @@
 extends Node2D
 
-var next_scene = null
 var goal_counter = 2
+var game_controller = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	next_scene = get_meta("next_scene")
-
+	game_controller = get_parent().get_node("GameController")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -25,4 +24,4 @@ func _checkCollidingObject():
 			
 func _checkWinCondition():
 	if goal_counter == 0:
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		game_controller.winGame()

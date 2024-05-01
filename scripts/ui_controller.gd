@@ -24,7 +24,9 @@ func _setupMainCamera():
 func _setMainCameraOrientation():
 	player = scene.get_node("Player")
 	cursor = scene.get_node("CursorCollider")
-	if(player == null):
+	if player == null and cursor == null:
+		pass
+	elif(player == null):
 		cursor.get_node("Camera2D").make_current()
 	elif(cursor == null):
 		player.get_node("Camera2D").make_current()
@@ -44,9 +46,9 @@ func _setMainCameraOrientation():
 		if zoom.x > 1:
 			zoom.x = 1
 			zoom.y = 1
-		elif zoom.x < 0.6:
-			zoom.x = 0.6
-			zoom.y = 0.6
+		elif zoom.x < 0.5:
+			zoom.x = 0.5
+			zoom.y = 0.5
 		main_camera.zoom = zoom
 	
 func toggleMainMenu():

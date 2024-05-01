@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://eqkg418pfu4y"]
+[gd_scene load_steps=11 format=3 uid="uid://eqkg418pfu4y"]
 
 [ext_resource type="PackedScene" uid="uid://cynykbf5m7bht" path="res://assets/cursor_collider.tscn" id="1_avgqv"]
 [ext_resource type="PackedScene" uid="uid://clqdr78or3c7r" path="res://assets/player.tscn" id="1_uyfm1"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://c1kdql23jokgm" path="res://assets/ui_controller.tscn" id="4_wg0fk"]
 [ext_resource type="PackedScene" uid="uid://cnscdcxv38rl1" path="res://assets/world_element/world_element.tscn" id="5_5c6di"]
 [ext_resource type="PackedScene" uid="uid://woh8v7ty2pc6" path="res://assets/world_element/rotation_point.tscn" id="6_h7c41"]
-[ext_resource type="PackedScene" uid="uid://dc6vvk68r3roh" path="res://assets/world_element/world_element_tiles.tscn" id="7_p7h8m"]
 [ext_resource type="PackedScene" uid="uid://b4028eds0kncl" path="res://assets/goal.tscn" id="8_nh3kq"]
+[ext_resource type="PackedScene" uid="uid://2ypnin64pi18" path="res://assets/world_element/small_world_element_tiles.tscn" id="9_2qe70"]
+[ext_resource type="PackedScene" uid="uid://dc6vvk68r3roh" path="res://assets/world_element/world_element_tiles.tscn" id="9_y13g0"]
+[ext_resource type="PackedScene" uid="uid://qeypu458ivyw" path="res://assets/game_controller.tscn" id="10_ksnrj"]
 
 [node name="test_scene" type="Node2D"]
 
@@ -18,26 +20,36 @@ position = Vector2(0, 32)
 position = Vector2(0, 32)
 
 [node name="ShaderController" parent="." instance=ExtResource("3_fsoa6")]
-metadata/shader_file_1 = "platform_shader/platform_shader_basic"
-metadata/shader_file_2 = "platform_shader/platform_shader_red"
+metadata/shader_files = PackedStringArray("entity_shader/player_shader", "entity_shader/cursor_shader", "entity_shader/goal_shader", "platform_shader/danger_shader", "platform_shader/platform_shader_basic", "platform_shader/platform_shader_alternative")
 
 [node name="UiController" parent="." instance=ExtResource("4_wg0fk")]
 
-[node name="WorldElement" parent="." groups=["ShadeGroup1"] instance=ExtResource("5_5c6di")]
+[node name="WorldElement" parent="." groups=["ShadeGroup4"] instance=ExtResource("5_5c6di")]
 metadata/can_rotate = false
 
 [node name="RotationPoint" parent="WorldElement" instance=ExtResource("6_h7c41")]
 
-[node name="Tiles" parent="WorldElement" instance=ExtResource("7_p7h8m")]
+[node name="Tiles" parent="WorldElement" instance=ExtResource("9_y13g0")]
 layer_0/tile_data = PackedInt32Array(131071, 65536, 0, 65537, 131072, 0, 131070, 0, 0, 65536, 65536, 0, 131074, 131072, 0, 196605, 0, 0, 262141, 0, 2, 262142, 65536, 2, 262143, 65536, 2, 196608, 65536, 2, 196609, 65536, 2, 196610, 131072, 2, 196606, 65536, 1, 196607, 65536, 1, 131072, 65536, 1, 131073, 65536, 1, 131076, 0, 0, 196612, 0, 2, 196613, 65536, 2, 196614, 65536, 2, 196615, 65536, 2, 196616, 65536, 2, 196617, 65536, 2, 196618, 131072, 2, 131082, 131072, 1, 65546, 131072, 1, 10, 131072, 1, -65526, 131072, 0, -65527, 0, 0, 8, 0, 0, 65543, 0, 0, 131078, 65536, 0, 131077, 65536, 0, 131079, 65536, 1, 131080, 65536, 1, 65544, 65536, 1, 65545, 65536, 1, 131081, 65536, 1, 9, 65536, 1, -65518, 0, 0, -65517, 65536, 0, -65516, 65536, 0, -65515, 65536, 0, -65514, 65536, 0, -65513, 65536, 0, -65512, 65536, 0, -65511, 65536, 0, -65510, 65536, 0, 18, 0, 2, 19, 65536, 2, 20, 65536, 2, 21, 65536, 2, 22, 65536, 2, 23, 65536, 2, 24, 65536, 2, 25, 65536, 2, 26, 65536, 2, 27, 131072, 2, -65509, 131072, 0)
 
-[node name="WorldElement2" parent="." groups=["ShadeGroup2"] instance=ExtResource("5_5c6di")]
+[node name="WorldElement2" parent="." groups=["ShadeGroup5"] instance=ExtResource("5_5c6di")]
 position = Vector2(928, 0)
 
 [node name="RotationPoint" parent="WorldElement2" instance=ExtResource("6_h7c41")]
 
-[node name="Tiles" parent="WorldElement2" instance=ExtResource("7_p7h8m")]
+[node name="Tiles" parent="WorldElement2" instance=ExtResource("9_y13g0")]
 layer_0/tile_data = PackedInt32Array(-2, 0, 0, 65534, 0, 2, -65535, 131072, 0, 1, 131072, 2, 0, 65536, 2, 65535, 65536, 2, -65536, 65536, 0, -1, 65536, 0)
 
 [node name="Goal" parent="." instance=ExtResource("8_nh3kq")]
 position = Vector2(1472, -224)
+
+[node name="WorldElement3" parent="." groups=["Danger", "ShadeGroup3"] instance=ExtResource("5_5c6di")]
+metadata/can_rotate = false
+
+[node name="RotationPoint" parent="WorldElement3" instance=ExtResource("6_h7c41")]
+
+[node name="Tiles" parent="WorldElement3" instance=ExtResource("9_2qe70")]
+layer_0/tile_data = PackedInt32Array(393241, 0, 0, 458777, 0, 2, 458778, 65536, 2, 458779, 65536, 2, 458780, 65536, 2, 458781, 65536, 2, 458782, 65536, 2, 458783, 65536, 2, 458784, 65536, 2, 458785, 65536, 2, 458786, 65536, 2, 458787, 65536, 2, 458788, 65536, 2, 458789, 65536, 2, 458790, 65536, 2, 458791, 65536, 2, 458792, 65536, 2, 458793, 65536, 2, 458794, 65536, 2, 458795, 65536, 2, 458796, 65536, 2, 458797, 65536, 2, 458798, 65536, 2, 458799, 65536, 2, 458800, 65536, 2, 458801, 65536, 2, 458802, 65536, 2, 458803, 65536, 2, 458804, 65536, 2, 458805, 65536, 2, 458806, 65536, 2, 458807, 131072, 2, 393271, 131072, 0, 393242, 65536, 0, 393243, 65536, 0, 393244, 65536, 0, 393245, 65536, 0, 393246, 65536, 0, 393247, 65536, 0, 393248, 65536, 0, 393249, 65536, 0, 393250, 65536, 0, 393251, 65536, 0, 393252, 65536, 0, 393253, 65536, 0, 393254, 65536, 0, 393255, 65536, 0, 393256, 65536, 0, 393257, 65536, 0, 393258, 65536, 0, 393259, 65536, 0, 393260, 65536, 0, 393261, 65536, 0, 393262, 65536, 0, 393263, 65536, 0, 393264, 65536, 0, 393265, 65536, 0, 393266, 65536, 0, 393267, 65536, 0, 393268, 65536, 0, 393269, 65536, 0, 393270, 65536, 0)
+
+[node name="GameController" parent="." instance=ExtResource("10_ksnrj")]
+metadata/win_scene = "test_scene2"

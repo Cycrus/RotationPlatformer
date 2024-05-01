@@ -5,9 +5,11 @@ void fragment() {
 	vec4 offset = vec4(0.4, 0.1, 0.3, 0.0);
 	vec4 border = vec4(0.0, 0.0, 0.0, 1.0);
 	vec4 new_color = vec4(0.0, 0.0, 0.0, 0.0);
+	float border_offset = 0.04;
+	float inv_border_offset = 1.0 - border_offset;
 	
-	if(UV.x < 0.04 || UV.x > 0.96 ||
-	   UV.y < 0.04 || UV.y > 0.96)
+	if(UV.x < border_offset || UV.x > inv_border_offset ||
+	   UV.y < border_offset || UV.y > inv_border_offset)
 	{
 		new_color = border;
 	}

@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://clqdr78or3c7r"]
+[gd_scene load_steps=6 format=3 uid="uid://clqdr78or3c7r"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_yunak"]
 [ext_resource type="Script" path="res://scripts/world_element_controller.gd" id="2_dypct"]
 [ext_resource type="Texture2D" uid="uid://c7i753v4j288t" path="res://res/player.png" id="2_g4n5d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqq57"]
-size = Vector2(64, 64)
+size = Vector2(60, 60)
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3jr0"]
+size = Vector2(62, 62)
+
+[node name="Player" type="CharacterBody2D" groups=["ShadeGroup0"]]
 script = ExtResource("1_yunak")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -20,3 +23,8 @@ script = ExtResource("2_dypct")
 shape = SubResource("RectangleShape2D_gqq57")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_b3jr0")
