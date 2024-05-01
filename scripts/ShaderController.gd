@@ -42,10 +42,13 @@ func assignShaders():
 			var tiles_exist = element.get_node("Tiles") != null
 			var sprite_exists = element.get_node("Sprite2D") != null
 			var line_exists = element.get_node("Line2D") != null
+			var background_exists = element.get_node("Background") != null
 			if tiles_exist:
 				element.get_node("Tiles").material = new_material
 			if sprite_exists:
 				element.get_node("Sprite2D").material = new_material
 			if line_exists:
 				element.get_node("Line2D").material = new_material
+			if background_exists:
+				element.get_node("Background").material = new_material
 				

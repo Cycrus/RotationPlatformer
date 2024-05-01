@@ -11,6 +11,7 @@ size = Vector2(60, 60)
 size = Vector2(62, 62)
 
 [node name="Player" type="CharacterBody2D" groups=["ShadeGroup0"]]
+z_index = -2
 script = ExtResource("1_yunak")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

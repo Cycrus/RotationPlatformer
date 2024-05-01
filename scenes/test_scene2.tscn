@@ -18,7 +18,7 @@ position = Vector2(0, 32)
 [node name="Player" parent="." instance=ExtResource("2_p4dc4")]
 position = Vector2(0, 32)
 
-[node name="UiController" parent="." instance=ExtResource("4_oea20")]
+[node name="UiController" parent="." groups=["ShadeGroup4"] instance=ExtResource("4_oea20")]
 
 [node name="GameController" parent="." instance=ExtResource("10_ooegm")]
 metadata/win_scene = "main_menu"

@@ -20,9 +20,9 @@ position = Vector2(0, 32)
 position = Vector2(0, 32)
 
 [node name="ShaderController" parent="." instance=ExtResource("3_fsoa6")]
-metadata/shader_files = PackedStringArray("entity_shader/player_shader", "entity_shader/cursor_shader", "entity_shader/goal_shader", "platform_shader/danger_shader", "platform_shader/platform_shader_basic", "platform_shader/platform_shader_alternative")
+metadata/shader_files = PackedStringArray("entity_shader/player_shader", "entity_shader/cursor_shader", "entity_shader/goal_shader", "platform_shader/danger_shader", "platform_shader/platform_shader_basic", "platform_shader/platform_shader_alternative", "background_shader/background_shader1")
 
-[node name="UiController" parent="." instance=ExtResource("4_wg0fk")]
+[node name="UiController" parent="." groups=["ShadeGroup6"] instance=ExtResource("4_wg0fk")]
 
 [node name="WorldElement" parent="." groups=["ShadeGroup4"] instance=ExtResource("5_5c6di")]
 metadata/can_rotate = false
